@@ -87,7 +87,7 @@ public class ZipFileSystemProvider extends FileSystemProvider {
 
     @Override
     public String getScheme() {
-        return "jar";
+        return "zipfs";
     }
 
     protected Path uriToPath(URI uri) {
