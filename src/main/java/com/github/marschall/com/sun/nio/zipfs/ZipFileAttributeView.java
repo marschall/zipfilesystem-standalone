@@ -39,10 +39,12 @@
 
 
 
-package com.sun.nio.zipfs;
+package com.github.marschall.com.sun.nio.zipfs;
 
-import java.nio.file.attribute.*;
 import java.io.IOException;
+import java.nio.file.attribute.BasicFileAttributeView;
+import java.nio.file.attribute.FileAttributeView;
+import java.nio.file.attribute.FileTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

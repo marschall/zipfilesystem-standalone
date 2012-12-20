@@ -38,13 +38,50 @@
  */
 
 
-package com.sun.nio.zipfs;
+package com.github.marschall.com.sun.nio.zipfs;
+
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENATT;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENATX;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENCOM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENCRC;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENDSK;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENEXT;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENFLG;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENHDR;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENHOW;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENLEN;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENNAM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENOFF;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENSIG;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENSIZ;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENTIM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENVEM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.CENVER;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.EXTID_EXTT;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.EXTID_NTFS;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.EXTID_ZIP64;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LG;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LL;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCCRC;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCEXT;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCFLG;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCHDR;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCHOW;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCLEN;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCNAM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCSIG;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCSIZ;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCTIM;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.LOCVER;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.SH;
+import static com.github.marschall.com.sun.nio.zipfs.ZipConstants.ZIP64_MINVAL;
+import static com.github.marschall.com.sun.nio.zipfs.ZipUtils.dosToJavaTime;
+import static com.github.marschall.com.sun.nio.zipfs.ZipUtils.unixToJavaTime;
+import static com.github.marschall.com.sun.nio.zipfs.ZipUtils.winToJavaTime;
 
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
-import static com.sun.nio.zipfs.ZipConstants.*;
-import static com.sun.nio.zipfs.ZipUtils.*;
 
 /**
  * Print all loc and cen headers of the ZIP file

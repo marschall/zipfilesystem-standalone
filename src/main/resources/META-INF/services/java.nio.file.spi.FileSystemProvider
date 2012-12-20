@@ -1,2 +1,2 @@
-com.sun.nio.zipfs.ZipFileSystemProvider
+com.github.marschall.com.sun.nio.zipfs.ZipFileSystemProvider
 
