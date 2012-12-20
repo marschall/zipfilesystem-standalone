@@ -185,11 +185,15 @@ class ZipConstants {
      */
     ///////////////////////////////////////////////////////
     static final int CH(byte[] b, int n) {
-        return Byte.toUnsignedInt(b[n]);
+        return toUnsignedInt(b[n]);
     }
 
     static final int SH(byte[] b, int n) {
-        return Byte.toUnsignedInt(b[n]) | (Byte.toUnsignedInt(b[n + 1]) << 8);
+        return toUnsignedInt(b[n]) | (toUnsignedInt(b[n + 1]) << 8);
+    }
+
+    private static int toUnsignedInt(byte x) {
+        return ((int) x) & 0xff;
     }
 
     static final long LG(byte[] b, int n) {
