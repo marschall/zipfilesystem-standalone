@@ -9,3 +9,11 @@ The packages are prefixed with `com.github.marschall` like packages included in 
 
 The name of the provider been changed from `jar` to `zipfs`.
 
+```xml
+    <dependency>
+      <groupId>com.github.marschall</groupId>
+      <artifactId>zipfilesystem-standalone</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+```
+
