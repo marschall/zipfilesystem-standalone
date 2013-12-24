@@ -225,7 +225,7 @@ public class ZipPath implements Path {
     @Override
     public URI toUri() {
         try {
-            return new URI("jar",
+            return new URI(zfs.provider().getScheme(),
                            zfs.getZipFile().toUri() +
                            "!" +
                            zfs.getString(toAbsolutePath().path),
