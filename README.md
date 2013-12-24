@@ -13,7 +13,7 @@ The name of the provider been changed from `jar` to `zipfs`.
     <dependency>
       <groupId>com.github.marschall</groupId>
       <artifactId>zipfilesystem-standalone</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
 ```
 
